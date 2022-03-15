@@ -1,0 +1,61 @@
+// bootstrap
+$utilities: map-merge(
+  $utilities,
+  (
+    "font-size":
+      map-merge(
+        map-get($utilities, "font-size"),
+        (
+          responsive: true,
+        )
+      ),
+    "text-align":
+      map-merge(map-get($utilities, "text-align"),
+      (
+        responsive: true,
+      ),
+    ),
+    "ratio":(property: --bs-aspect-ratio,
+      class: ratio,
+      responsive: true,
+      values: $aspect-ratios,
+    ),
+  )
+);
+
+.ls-1{
+  letter-spacing: 0.03em;
+}
+
+.object-cover{
+  object-fit: cover;
+}
+
+.white-space-nowrap{
+  white-space: nowrap;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.filter-blur{
+  backdrop-filter: blur(5px);
+}
+
+.shadow-style {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+$rounded-type:(
+  12px: 12px,
+  20px: 20px,
+  24px: 24px,
+);
+@each $name,$value in $rounded-type {
+  .rounded-#{$name}{
+    border-radius: $value !important;
+  }
+}

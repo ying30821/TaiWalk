@@ -1,0 +1,12 @@
+@import "~bootstrap/scss/functions";
+@import "./helpers/variables";
+@import "~bootstrap/scss/utilities";
+@import './utilities/utilities';
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "./helpers/reboot";
+@import "./utilities/hover";
+@import "./components/swiper";

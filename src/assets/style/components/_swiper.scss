@@ -1,0 +1,29 @@
+@import '~swiper/swiper.min.css';
+@import '~swiper/components/pagination/pagination.min.css';
+
+.swiper-pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 24px;
+}
+.swiper-my-bullet {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  @include media-breakpoint-up(lg) {
+    width: 16px;
+    height: 16px;
+  }
+  & + & {
+    margin-left: 6px;
+    @include media-breakpoint-up(lg) {
+      margin-left: 14px;
+    } 
+  }
+}
+.swiper-my-bullet-active {
+  background-color: #fff;
+  transform: scale(1.25);
+}
