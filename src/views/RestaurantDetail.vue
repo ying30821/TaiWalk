@@ -17,7 +17,7 @@
           #{{ restaurantData.Class }}
         </span>
       </div>
-      <h3 class="fs-6 fs-lg-5 text-dark-2 fw-bold mb-1">景點介紹：</h3>
+      <h3 class="fs-6 fs-lg-5 text-dark-2 fw-bold mb-1">餐廳介紹：</h3>
       <p class="fs-7 fs-lg-6 mb-3.75">{{ restaurantData.Description }}</p>
       <div class="row gy-1 gy-lg-0">
         <div class="col-lg-6">
@@ -71,9 +71,9 @@
     </section>
     <section>
       <div class="d-flex justify-content-between align-items-center mb-0.75">
-        <h2 class="fs-4 fs-lg-2 text-dark fw-light mb-0.5 mb-lg-0.75">還有這些不能錯過的景點</h2>
+        <h2 class="fs-4 fs-lg-2 text-dark fw-light mb-0.5 mb-lg-0.75">還有這些不能錯過的美食</h2>
         <a class="hvr-forward d-block text-secondary-2 d-flex" href="#/restaurant">
-          查看更多景點<i class="material-icons-outlined"> chevron_right </i>
+          查看更多美食<i class="material-icons-outlined"> chevron_right </i>
         </a>
       </div>
       <RestaurantSwiper :swiperData="recommendRestaurant"></RestaurantSwiper>

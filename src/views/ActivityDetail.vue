@@ -83,9 +83,9 @@
     </section>
     <section>
       <div class="d-flex justify-content-between align-items-center mb-0.75">
-        <h2 class="fs-4 fs-lg-2 text-dark fw-light mb-0.5 mb-lg-0.75">還有這些不能錯過的景點</h2>
+        <h2 class="fs-4 fs-lg-2 text-dark fw-light mb-0.5 mb-lg-0.75">還有這些不能錯過活動</h2>
         <a class="hvr-forward d-block text-secondary-2 d-flex" href="#/scenicSpot">
-          查看更多景點<i class="material-icons-outlined"> chevron_right </i>
+          查看更多活動<i class="material-icons-outlined"> chevron_right </i>
         </a>
       </div>
       <ActivitySwiper :swiperData="recommendActivity"></ActivitySwiper>

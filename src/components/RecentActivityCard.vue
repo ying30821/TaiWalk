@@ -18,7 +18,7 @@
             {{ $filters.date(cardData.StartTime) }} -
             {{ $filters.date(cardData.EndTime) }}
           </p>
-          <h4 class="fs-6 fs-lg-5 text-dark-2 mb-1">
+          <h4 class="ellipsis fs-6 fs-lg-5 text-dark-2 mb-1">
             {{ cardData.ActivityName }}
           </h4>
           <div
