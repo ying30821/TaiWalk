@@ -1,9 +1,9 @@
 <template>
-  <a class="shadow-style hvr-card card d-block bg-light rounded-12px overflow-hidden h-100" href="#"
+  <a class="shadow-style hvr-card card d-block bg-light rounded-12px h-100" href="#"
     @click.prevent="pushToPage(cardData.ActivityID)">
     <div class="row g-0">
       <div class="col-4">
-        <div class="ratio ratio-1x1">
+        <div class="ratio ratio-1x1 rounded-end-12px">
           <img
             :src="cardData.Picture.PictureUrl1"
             :alt="cardData.Picture.PictureDescription1"
