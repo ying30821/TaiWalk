@@ -11,6 +11,7 @@ const routes = [
     path: '/scenicSpot',
     name: 'ScenicSpot',
     component: () => import('../views/ScenicSpot.vue'),
+    props: (route) => route.params,
   },
   {
     path: '/scenicSpot/:spotId',
@@ -20,6 +21,7 @@ const routes = [
     path: '/activity',
     name: 'Activity',
     component: () => import('../views/Activity.vue'),
+    props: (route) => route.params,
   },
   {
     path: '/activity/:activityId',
@@ -29,6 +31,7 @@ const routes = [
     path: '/restaurant',
     name: 'Restaurant',
     component: () => import('../views/Restaurant.vue'),
+    props: (route) => route.params,
   },
   {
     path: '/restaurant/:restaurantId',

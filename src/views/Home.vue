@@ -4,48 +4,27 @@
     <section class="pt-0.5 pt-lg-5 mb-2.25 mb-lg-3.5">
       <div class="row">
         <div class="col-lg-6 offset-lg-1 mb-2.25 mb-lg-0">
-          <h2
-            class="
-              fs-3 fs-lg-2
-              lh-base
-              fw-light
-              text-dark text-center text-lg-start
-              ls-1
-              mb-1
-            "
-          >
-            探索<span class="border-bottom border-3 border-secondary"
-              >台灣之美</span
-            ><br />
+          <h2 class="fs-3 fs-lg-2 lh-base fw-light text-dark text-center
+            text-lg-start ls-1 mb-1">探索
+            <span class="border-bottom border-3 border-secondary">台灣之美</span><br/>
             讓我們更親近這片土地
           </h2>
-          <p
-            class="
-              d-flex
-              justify-content-center justify-content-lg-start
-              align-items-center
-              fs-8 fs-lg-6
-              text-light-3 text-center
-              ls-1
-              mb-0
-            "
-          >
-            <i class="material-icons text-secondary fs-4"> place </i
-            >台灣旅遊景點導覽<span class="ms-0.25">Taiwan Travel Guide</span>
+          <p class="d-flex justify-content-center justify-content-lg-start align-items-center
+              fs-8 fs-lg-6 text-light-3 text-center ls-1 mb-0">
+            <i class="material-icons text-secondary fs-4"> place </i>
+            台灣旅遊景點導覽<span class="ms-0.25">Taiwan Travel Guide</span>
           </p>
         </div>
         <div class="col-lg-4">
-          <select class="form-select text-primary mb-0.5">
-            <option value="scenicSpot" selected>探索景點</option>
-            <option value="activity">節慶活動</option>
-            <option value="restaurant">品嚐美食</option>
+          <select class="form-select text-primary mb-0.5" v-model="searchData.page">
+            <option value="ScenicSpot">探索景點</option>
+            <option value="Activity">節慶活動</option>
+            <option value="Restaurant">品嚐美食</option>
           </select>
-          <input
-            type="text"
-            class="form-control bg-light text-light-2 mb-0.5"
-            placeholder="你想去哪裡？請輸入關鍵字"
+          <input type="text" class="form-control bg-light text-light-2 mb-0.5"
+            placeholder="你想去哪裡？請輸入關鍵字" v-model="searchData.keyword"
           />
-          <button type="button" class="btn btn-primary text-white w-100">
+          <button type="button" class="btn btn-primary text-white w-100" @click="passSearchData">
             <i class="bi bi-search me-1"></i>搜 尋
           </button>
         </div>
@@ -115,6 +94,10 @@ export default {
       activityData: '',
       popularSpotSwiperData: '',
       restaurantSwiperData: '',
+      searchData: {
+        page: 'ScenicSpot',
+        keyword: '',
+      },
     };
   },
   methods: {
@@ -133,6 +116,13 @@ export default {
           this.popularSpotSwiperData,
           this.restaurantSwiperData,
         ] = res;
+      });
+    },
+    passSearchData() {
+      const indexSearch = this.searchData;
+      this.$router.push({
+        name: indexSearch.page,
+        params: { indexSearch: JSON.stringify(indexSearch) },
       });
     },
   },

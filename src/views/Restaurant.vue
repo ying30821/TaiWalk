@@ -38,7 +38,8 @@
             placeholder="你想去哪裡？請輸入關鍵字" v-model="searchData.keyword"/>
         </div>
         <div class="col-lg-3">
-          <button type="button" class="btn btn-primary text-white w-100" @click="getSearch">
+          <button type="button" class="btn btn-primary text-white w-100"
+            @click="getSearch(searchData)">
             <i class="bi bi-search me-1"></i>搜 尋
           </button>
         </div>
@@ -88,7 +89,11 @@ import Pagination from '@/components/Pagination.vue';
 import paginationMixin from '@/mixins/paginationMixin';
 
 export default {
-
+  props: {
+    indexSearch: {
+      type: String,
+    },
+  },
   inject: ['reload'],
   mixins: [paginationMixin],
   components: {
@@ -175,8 +180,7 @@ export default {
           console.log(err);
         });
     },
-    getSearch() {
-      const search = { ...this.searchData };
+    getSearch(search) {
       if (!search.city) {
         this.getRestaurantData(search.category, search.keyword);
       } else {
@@ -189,6 +193,11 @@ export default {
       };
     },
   },
-
+  mounted() {
+    if (this.indexSearch) {
+      const searchData = JSON.parse(this.indexSearch);
+      this.getSearch(searchData);
+    }
+  },
 };
 </script>

@@ -1,5 +1,4 @@
 <template>
-<div class="wrapper">
   <Navbar class="header"></Navbar>
   <main class="main">
     <router-view v-if="isRouterAlive" :key="key"/>
@@ -8,7 +7,6 @@
     Copyright © 2021 TaiWalk. All rights reserved.
     <span class="ms-0.5">Design : Breakfast , Front Developed : lumei.</span>
   </footer>
-</div>
 </template>
 
 <style lang="scss">
