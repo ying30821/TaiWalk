@@ -1,5 +1,5 @@
 # 台灣走走 Tai Walk
-![image](https://raw.githubusercontent.com/ying30821/TaiWalk/4a882710faaa22ba030c6737fa1f5bd48f211033/src/assets/images/readmePic.png)
+![image](https://github.com/ying30821/TaiWalk/blob/master/src/assets/images/readmePic.png?raw=true)
 
 作品連結：[點擊作品連結](https://ying30821.github.io/TaiWalk/#/)
 
