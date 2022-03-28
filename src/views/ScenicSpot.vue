@@ -155,13 +155,15 @@ export default {
       this.axios
         .get(api)
         .then((res) => {
-          this.isLoading = false;
           this.tempData = res.data;
           this.isSearch = true;
           this.getPage();
         })
         .catch((err) => {
           console.log(err);
+        })
+        .then(() => {
+          this.isLoading = false;
         });
     },
     getSpotByCity(city, category, keyword = '') {
@@ -175,13 +177,15 @@ export default {
       this.axios
         .get(api)
         .then((res) => {
-          this.isLoading = false;
           this.tempData = res.data;
           this.isSearch = true;
           this.getPage();
         })
         .catch((err) => {
           console.log(err);
+        })
+        .then(() => {
+          this.isLoading = false;
         });
     },
     getSearch(search) {

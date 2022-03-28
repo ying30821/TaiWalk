@@ -151,13 +151,15 @@ export default {
       this.axios
         .get(api)
         .then((res) => {
-          this.isLoading = false;
           this.tempData = res.data;
           this.isSearch = true;
           this.getPage();
         })
         .catch((err) => {
           console.log(err);
+        })
+        .then(() => {
+          this.isLoading = false;
         });
     },
     getRestaurantByCity(city, category, keyword = '') {
@@ -171,13 +173,15 @@ export default {
       this.axios
         .get(api)
         .then((res) => {
-          this.isLoading = false;
           this.tempData = res.data;
           this.isSearch = true;
           this.getPage();
         })
         .catch((err) => {
           console.log(err);
+        })
+        .then(() => {
+          this.isLoading = false;
         });
     },
     getSearch(search) {

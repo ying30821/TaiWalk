@@ -116,7 +116,6 @@ export default {
       this.axios
         .get(api)
         .then((res) => {
-          this.isLoading = false;
           [this.restaurantData] = res.data;
           this.restaurantImg = repackDetailImg(this.restaurantData);
           const lon = this.restaurantData.Position.PositionLon;
@@ -125,6 +124,9 @@ export default {
         })
         .catch((err) => {
           console.log(err);
+        })
+        .then(() => {
+          this.isLoading = false;
         });
     },
   },
@@ -134,10 +136,16 @@ export default {
   mounted() {
     this.getRestaurant();
     this.isLoading = true;
-    getRepeatApi(getRandomRestaurantByCity, 4).then((res) => {
-      this.isLoading = false;
-      this.recommendRestaurant = res;
-    });
+    getRepeatApi(getRandomRestaurantByCity, 4)
+      .then((res) => {
+        this.recommendRestaurant = res;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .then(() => {
+        this.isLoading = false;
+      });
   },
 };
 </script>

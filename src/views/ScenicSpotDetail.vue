@@ -124,7 +124,6 @@ export default {
       this.axios
         .get(api)
         .then((res) => {
-          this.isLoading = false;
           [this.spotData] = res.data;
           this.spotImg = repackDetailImg(this.spotData);
           const lon = this.spotData.Position.PositionLon;
@@ -133,6 +132,9 @@ export default {
         })
         .catch((err) => {
           console.log(err);
+        })
+        .then(() => {
+          this.isLoading = false;
         });
     },
   },
@@ -142,10 +144,16 @@ export default {
   mounted() {
     this.getSpot();
     this.isLoading = true;
-    getRepeatApi(getRandomScenicByCity, 4).then((res) => {
-      this.isLoading = false;
-      this.recommendSpot = res;
-    });
+    getRepeatApi(getRandomScenicByCity, 4)
+      .then((res) => {
+        this.recommendSpot = res;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .then(() => {
+        this.isLoading = false;
+      });
   },
 };
 </script>

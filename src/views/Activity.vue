@@ -171,7 +171,6 @@ export default {
       this.axios
         .get(api)
         .then((res) => {
-          this.isLoading = false;
           this.isSearch = true;
           this.tempData = res.data;
           if (this.selectTime) {
@@ -186,6 +185,9 @@ export default {
         })
         .catch((err) => {
           console.log(err);
+        })
+        .then(() => {
+          this.isLoading = false;
         });
     },
     getActivityByCity(city, category, keyword = '') {
@@ -199,7 +201,6 @@ export default {
       this.axios
         .get(api)
         .then((res) => {
-          this.isLoading = false;
           this.isSearch = true;
           this.tempData = res.data;
           if (this.selectTime) {
@@ -214,6 +215,9 @@ export default {
         })
         .catch((err) => {
           console.log(err);
+        })
+        .then(() => {
+          this.isLoading = false;
         });
     },
     getSearch(search) {

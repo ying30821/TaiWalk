@@ -128,7 +128,6 @@ export default {
       this.axios
         .get(api)
         .then((res) => {
-          this.isLoading = false;
           [this.activityData] = res.data;
           this.activityImg = repackDetailImg(this.activityData);
           const lon = this.activityData.Position.PositionLon;
@@ -137,6 +136,9 @@ export default {
         })
         .catch((err) => {
           console.log(err);
+        })
+        .then(() => {
+          this.isLoading = false;
         });
     },
   },
@@ -147,10 +149,16 @@ export default {
   mounted() {
     this.getActivity();
     this.isLoading = true;
-    getRepeatApi(getRandomActivityByCity, 4).then((res) => {
-      this.isLoading = false;
-      this.recommendActivity = res;
-    });
+    getRepeatApi(getRandomActivityByCity, 4)
+      .then((res) => {
+        this.recommendActivity = res;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .then(() => {
+        this.isLoading = false;
+      });
   },
 };
 </script>

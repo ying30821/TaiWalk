@@ -109,13 +109,16 @@ export default {
         getRepeatApi(getRandomScenicByCity, 4),
         getRepeatApi(getRandomRestaurantByCity, 4),
       ]).then((res) => {
-        this.isLoading = false;
         [
           this.carouselSwiperData,
           this.activityData,
           this.popularSpotSwiperData,
           this.restaurantSwiperData,
         ] = res;
+      }).catch((err) => {
+        console.log(err);
+      }).then(() => {
+        this.isLoading = false;
       });
     },
     passSearchData() {
